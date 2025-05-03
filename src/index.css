@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+
+@tailwind utilities;
+
 @custom-variant dark (&:is(.dark *));
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -59,6 +62,7 @@ a:hover {
 }
 
 body {
+  background-color: #000000;
   margin: 0;
   display: flex;
   place-items: center;
