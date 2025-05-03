@@ -33,7 +33,7 @@ export function SignupForm({
             const data = await res.json()
             if (res.ok) {
                 alert("Signup successful!")
-                window.location.href = "/"
+                window.location.href = "/login"
             } else {
                 alert(data.message || "Signup failed")
             }
@@ -95,7 +95,7 @@ export function SignupForm({
                         </div>
                         <div className="mt-4 text-center text-sm">
                             Already have an account?{" "}
-                            <a href="/" className="underline underline-offset-4">
+                            <a href="/login" className="underline underline-offset-4">
                                 Login
                             </a>
                         </div>
