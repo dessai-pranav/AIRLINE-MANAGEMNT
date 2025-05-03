@@ -25,7 +25,7 @@ export function SignupForm({
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         try {
-            const res = await fetch("http://localhost:3001/signup", {
+            const res = await fetch("http://localhost:5000/api/users/register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(form),
@@ -35,7 +35,7 @@ export function SignupForm({
                 alert("Signup successful!")
                 window.location.href = "/login"
             } else {
-                alert(data.message || "Signup failed")
+                alert(data.error || "Signup failed")
             }
         } catch (err) {
             alert("Signup error")

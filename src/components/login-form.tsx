@@ -1,16 +1,10 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Label } from "@radix-ui/react-label";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "./ui/card";
+import { Input } from "./ui/input";
+import React, {useState} from "react";
+import {useNavigate} from "react-router-dom";
+import {cn} from "@/lib/utils";
+import { Button } from "./ui/button";
 
 export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
     const [email, setEmail] = useState("");
@@ -21,23 +15,26 @@ export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRe
         e.preventDefault();
 
         try {
-            const res = await fetch("http://localhost:5000/login", {
+
+            const res = await fetch("http://localhost:5000/api/users/login", {
+
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify({ email,password}),
             });
 
-            if (res.ok) {
-                // Login successful
+            const data = await res.json();
+
+            if (res.ok && data.success) {
                 console.log("Login successful");
-                navigate("/dashboard"); // change this as needed
+                navigate("/dashboard");
             } else {
-                // Login failed
                 console.log("Invalid credentials");
                 navigate("/signup");
             }
         } catch (error) {
             console.error("Error during login", error);
+            navigate("/signup");
         }
     };
 
