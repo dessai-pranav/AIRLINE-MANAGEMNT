@@ -90,3 +90,6 @@ export {
   CardDescription,
   CardContent,
 }
+
+export class zCardContent {
+}

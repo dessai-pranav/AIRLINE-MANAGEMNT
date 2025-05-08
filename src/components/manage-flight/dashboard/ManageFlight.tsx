@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/components/app-sidebar"
+import { AppSidebar } from "@/components/manage-flight/component/app-sidebar"
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -13,6 +13,7 @@ import {
     SidebarProvider,
     SidebarTrigger,
 } from "@/components/ui/sidebar"
+import React from "react";
 
 export default function ManageFlight() {
     return (

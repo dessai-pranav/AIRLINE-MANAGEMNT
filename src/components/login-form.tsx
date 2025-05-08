@@ -34,7 +34,10 @@ export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRe
 
             const data = await res.json();
 
+            console.log(data);
+
             if (res.ok && data.success) {
+                console.log(data)
                 console.log("User login successful");
                 navigate("/dashboard");
             } else {
